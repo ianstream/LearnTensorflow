@@ -26,9 +26,10 @@ with tf.Session() as sess:
     print('int64.max:', int64.max, ', int64.min:', int64.min)
 
 
-t = [[[1, 1, 1], [2, 2, 2]], [[3, 3, 3], [4, 4, 4]]]
-t2 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+t = tf.Variable([[[1, 1, 1], [2, 2, 2]], [[3, 3, 3], [4, 4, 4]]])
+t2 = tf.Variable([1, 2, 3, 4, 5, 6, 7, 8, 9])
 t3 = tf.reshape(t2, [3, 3])
+t4 = tf.reshape(t, [-1])
 
 with tf.Session() as sess:
     print(t)
@@ -38,9 +39,10 @@ with tf.Session() as sess:
 
     print('t2:', t2)
     print('t3:', t3)
+    print('t4:', t4)
 
 
-t = [1, 2, 1, 3, 1, 1]
+t = tf.Variable([1, 1, 1, 2, 3, 3, 4, 4, 4])
 t_sq = tf.squeeze(t)
 
 with tf.Session() as sess:
@@ -49,15 +51,15 @@ with tf.Session() as sess:
     print(t_sq)
 
 
-input = [[[1, 1, 1], [2, 2, 2]],
+input = tf.Variable([[[1, 1, 1], [2, 2, 2]],
          [[3, 3, 3], [4, 4, 4]],
-         [[5, 5, 5], [6, 6, 6]]]
+         [[5, 5, 5], [6, 6, 6]]])
 
 with tf.Session() as sess:
     print('slice:', tf.slice(input, [1, 0, 0], [1, 1, 3]))
 
 
-tensor = [[1, 2, 3], [4, 5, 6]]
+tensor = tf.Variable([[1, 2, 3], [4, 5, 6]])
 tensor = tf.zeros_like(tensor)
 with tf.Session() as sess:
     print(tensor)

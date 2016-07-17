@@ -13,6 +13,7 @@ try to find vlaues for W and b compute y_data = W * x_data + b
 W = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
 b = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
 
+# X, Y 를 placeholder 로 선언한다. 이제 run 실행 시 값을 지정할 수 있다
 X = tf.placeholder(tf.float32)
 Y = tf.placeholder(tf.float32)
 
